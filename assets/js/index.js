@@ -124,7 +124,8 @@ function carouselStep(step){
     }else if(currentCarouselIndex>3){
         currentCarouselIndex = 0
     }
-    testimonialsCarousel.style.setProperty('transform' , `translateX(${100*currentCarouselIndex}%)`)
+    let translateValue = window.innerWidth < 768 ? 100 * currentCarouselIndex : ((100/3) * currentCarouselIndex);
+    testimonialsCarousel.style.setProperty('transform' , `translateX(${translateValue}%)`)
 }
 
 
@@ -159,7 +160,8 @@ for(let i = 0 ; i < carousel.length ; i++){
 
         clearCarousel()
         currentCarouselIndex = Number(carousel[i].getAttribute('data-index'))
-        testimonialsCarousel.style.setProperty('transform' , `translateX(${100*currentCarouselIndex}%)`)
+        let translateValue = window.innerWidth < 768 ? 100 * currentCarouselIndex : ((100/3) * currentCarouselIndex);
+        testimonialsCarousel.style.setProperty('transform' , `translateX(${translateValue}%)`)
         if(carousel[i].contains(e.target)){
             displayCarousel(i)
         }
